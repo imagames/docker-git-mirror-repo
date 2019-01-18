@@ -4,6 +4,7 @@ set -euo pipefail
 
 # Clone the requested repo
 cd /git
+export GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
 REPO_FOLDER=$(basename "$GIT_CLONE_URL" .git)
 if [ ! -d "${REPO_FOLDER}" ] ; then
     echo "Repo not present, cloning"
