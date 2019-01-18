@@ -33,3 +33,9 @@ You can also do this with `docker secret` if running inside a swarm.
 ## Persistence
 
 Repos are cloned in the container's `/git` folder. Feel free to mount this as a volume to avoid unneeded clones: if the folder is present, this image will run `git pull` instead of `git clone` on startup.
+
+## Why
+
+This was originally built as a way to provide access to secured git repos inside swarm stacks without having to put the SSH keys in the client containers.
+
+Another use of this mirror is reducing bandwidth usage since you could use the same mirror for all clients on your local network, thus having to download the repo from the internet only once.
